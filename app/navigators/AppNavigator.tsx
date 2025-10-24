@@ -10,11 +10,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Config from "@/config"
 import { useAuth } from "@/context/AuthContext"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
-import { LoginScreen } from "@/screens/LoginScreen"
 import { WelcomeScreen } from "@/screens/WelcomeScreen"
-import { useAppTheme } from "@/theme/context"
 
-import { DemoNavigator } from "./DemoNavigator"
 import type { AppStackParamList, NavigationProps } from "./navigationTypes"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 
@@ -30,30 +27,20 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 const AppStack = () => {
   const { isAuthenticated } = useAuth()
 
-  const {
-    theme: { colors },
-  } = useAppTheme()
-
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        navigationBarColor: colors.background,
-        contentStyle: {
-          backgroundColor: colors.background,
-        },
       }}
-      initialRouteName={isAuthenticated ? "Welcome" : "Login"}
+      initialRouteName={isAuthenticated ? "Welcome" : "Welcome"}
     >
       {isAuthenticated ? (
         <>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-
-          <Stack.Screen name="Demo" component={DemoNavigator} />
         </>
       ) : (
         <>
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
         </>
       )}
 
@@ -64,12 +51,10 @@ const AppStack = () => {
 }
 
 export const AppNavigator = (props: NavigationProps) => {
-  const { navigationTheme } = useAppTheme()
-
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 
   return (
-    <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
+    <NavigationContainer ref={navigationRef} {...props}>
       <ErrorBoundary catchErrors={Config.catchErrors}>
         <AppStack />
       </ErrorBoundary>

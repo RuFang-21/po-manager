@@ -5,6 +5,11 @@ const { getDefaultConfig } = require("expo/metro-config")
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname)
 
+// Add SVG support
+config.transformer.babelTransformerPath = require.resolve("react-native-svg-transformer/expo")
+config.resolver.assetExts = config.resolver.assetExts.filter((ext) => ext !== "svg")
+config.resolver.sourceExts.push("svg")
+
 config.transformer.getTransformOptions = async () => ({
   transform: {
     // Inline requires are very useful for deferring loading of large dependencies/components.
