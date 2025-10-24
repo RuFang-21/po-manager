@@ -4,17 +4,17 @@
  * Generally speaking, it will contain an auth flow (registration, login, forgot password)
  * and a "main" flow which the user will use once logged in.
  */
+import { ComponentProps } from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
 
 import Config from "@/config"
-import { useAuth } from "@/context/AuthContext"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
-import SignInScreen from "@/screens/SignInScreen"
-import { WelcomeScreen } from "@/screens/WelcomeScreen"
 
-import type { AppStackParamList, NavigationProps } from "./navigationTypes"
-import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
+import { createAuthGroup } from "../Groups"
+import { navigationRef, useBackButtonHandler } from "../navigationUtilities"
+import { AppStackParamList } from "./props"
+import { BottomTabNavigator } from "../BottomTabNavigators"
 
 /**
  * This is a list of all the route names that will exit the app if the back button
@@ -22,38 +22,27 @@ import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
  */
 const exitRoutes = Config.exitRoutes
 
+export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStackScreenProps<
+  AppStackParamList,
+  T
+>
+
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
 const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = () => {
-  const { isAuthenticated } = useAuth()
-
-  console.log("isAuthenticated", isAuthenticated)
-
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-      initialRouteName={isAuthenticated ? "Welcome" : "SignIn"}
-    >
-      {isAuthenticated ? (
-        <>
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        </>
-      ) : (
-        <>
-          <Stack.Screen name="SignIn" component={SignInScreen} />
-        </>
-      )}
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Signin">
+      <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
 
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
-      {/* <Stack.Screen name="Dashboard" component={DashboardScreen} />
-      <Stack.Screen name="SignIn" component={SignInScreen} /> */}
+      {/* ============== Auth Group */}
+      {createAuthGroup({ Stack })}
     </Stack.Navigator>
   )
 }
+
+export interface NavigationProps
+  extends Partial<ComponentProps<typeof NavigationContainer<AppStackParamList>>> {}
 
 export const AppNavigator = (props: NavigationProps) => {
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
@@ -66,3 +55,5 @@ export const AppNavigator = (props: NavigationProps) => {
     </NavigationContainer>
   )
 }
+
+export * from "./props"

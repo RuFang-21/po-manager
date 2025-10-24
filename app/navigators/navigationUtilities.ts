@@ -1,19 +1,18 @@
 import { useState, useEffect, useRef } from "react"
 import { BackHandler, Linking, Platform } from "react-native"
 import {
+  NavigationProp,
   NavigationState,
   PartialState,
   createNavigationContainerRef,
+  useNavigation,
 } from "@react-navigation/native"
 
 import Config from "@/config"
-import type { PersistNavigationConfig } from "@/config/config.base"
-import * as storage from "@/utils/storage"
+import { PersistNavigationConfig } from "@/config/config.base"
 import { useIsMounted } from "@/utils/useIsMounted"
 
-import type { AppStackParamList, NavigationProps } from "./navigationTypes"
-
-type Storage = typeof storage
+import { AppStackParamList, NavigationProps } from "./AppNavigator/index"
 
 /**
  * Reference to the root App Navigator.
@@ -165,7 +164,12 @@ export function useNavigationPersistence(storage: Storage, persistenceKey: strin
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { onNavigationStateChange, restoreState, isRestored, initialNavigationState }
+  return {
+    onNavigationStateChange,
+    restoreState,
+    isRestored,
+    initialNavigationState,
+  }
 }
 
 /**
@@ -200,9 +204,26 @@ export function goBack() {
  * @returns {void}
  */
 export function resetRoot(
-  state: Parameters<typeof navigationRef.resetRoot>[0] = { index: 0, routes: [] },
+  state: Parameters<typeof navigationRef.resetRoot>[0] = {
+    index: 0,
+    routes: [],
+  },
 ) {
   if (navigationRef.isReady()) {
     navigationRef.resetRoot(state)
   }
+}
+
+export const useGetNavigation = () => {
+  return useNavigation<NavigationProp<AppStackParamList>>()
+}
+
+export const useParentNavigation = () => {
+  const tmpNavigation = useNavigation()
+  const isStack = tmpNavigation.getState()?.type === "stack"
+  const navigation = (
+    isStack ? tmpNavigation : tmpNavigation?.getParent()
+  ) as NavigationProp<AppStackParamList>
+
+  return navigation
 }

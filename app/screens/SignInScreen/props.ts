@@ -1,13 +1,13 @@
 import { SvgProps } from "react-native-svg"
 
-import { AppStackScreenProps } from "@/navigators/navigationTypes"
+import { AppStackScreenProps } from "@/navigators/AppNavigator/index"
 
 /**
  * ===========================
  * MAIN
  * ===========================
  */
-export type SignInScreenProps = AppStackScreenProps<"SignIn">
+export type SignInScreenProps = AppStackScreenProps<"Signin">
 
 export type SignInFormFieldValues = {
   email: string
