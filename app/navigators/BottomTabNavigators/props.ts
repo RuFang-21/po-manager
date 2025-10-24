@@ -1,19 +1,10 @@
-import { BottomTabScreenProps as NativeStackScreenProps } from '@react-navigation/bottom-tabs';
-
-import { DiscoverRoute } from '@app/screens/Discover/props';
+import { BottomTabScreenProps as NativeStackScreenProps } from "@react-navigation/bottom-tabs"
 
 export type BottomTabParamList = {
-  Homepage?: undefined;
-  Discover?: {
-    destinationTab: DiscoverRoute['key'];
-  };
-  Community?: undefined;
-  Profile?: {
-    userId: string;
-    userName?: string;
-    userAvatar?: string;
-  };
-};
+  Dashboard?: undefined
+}
 
-export type BottomTabScreenProps<T extends keyof BottomTabParamList> =
-  NativeStackScreenProps<BottomTabParamList, T>;
+export type BottomTabScreenProps<T extends keyof BottomTabParamList> = NativeStackScreenProps<
+  BottomTabParamList,
+  T
+>

@@ -1130,6 +1130,18 @@
   dependencies:
     tslib "^2.4.0"
 
+"@emotion/is-prop-valid@^0.8.2":
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
+  integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
+  dependencies:
+    "@emotion/memoize" "0.7.4"
+
+"@emotion/memoize@0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
+  integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
+
 "@esbuild/aix-ppc64@0.25.11":
   version "0.25.11"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.25.11.tgz#2ae33300598132cc4cf580dbbb28d30fed3c5c49"
@@ -2094,6 +2106,59 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@motionone/animation@^10.12.0":
+  version "10.18.0"
+  resolved "https://registry.yarnpkg.com/@motionone/animation/-/animation-10.18.0.tgz#868d00b447191816d5d5cf24b1cafa144017922b"
+  integrity sha512-9z2p5GFGCm0gBsZbi8rVMOAJCtw1WqBTIPw3ozk06gDvZInBPIsQcHgYogEJ4yuHJ+akuW8g1SEIOpTOvYs8hw==
+  dependencies:
+    "@motionone/easing" "^10.18.0"
+    "@motionone/types" "^10.17.1"
+    "@motionone/utils" "^10.18.0"
+    tslib "^2.3.1"
+
+"@motionone/dom@10.12.0":
+  version "10.12.0"
+  resolved "https://registry.yarnpkg.com/@motionone/dom/-/dom-10.12.0.tgz#ae30827fd53219efca4e1150a5ff2165c28351ed"
+  integrity sha512-UdPTtLMAktHiqV0atOczNYyDd/d8Cf5fFsd1tua03PqTwwCe/6lwhLSQ8a7TbnQ5SN0gm44N1slBfj+ORIhrqw==
+  dependencies:
+    "@motionone/animation" "^10.12.0"
+    "@motionone/generators" "^10.12.0"
+    "@motionone/types" "^10.12.0"
+    "@motionone/utils" "^10.12.0"
+    hey-listen "^1.0.8"
+    tslib "^2.3.1"
+
+"@motionone/easing@^10.18.0":
+  version "10.18.0"
+  resolved "https://registry.yarnpkg.com/@motionone/easing/-/easing-10.18.0.tgz#7b82f6010dfee3a1bb0ee83abfbaff6edae0c708"
+  integrity sha512-VcjByo7XpdLS4o9T8t99JtgxkdMcNWD3yHU/n6CLEz3bkmKDRZyYQ/wmSf6daum8ZXqfUAgFeCZSpJZIMxaCzg==
+  dependencies:
+    "@motionone/utils" "^10.18.0"
+    tslib "^2.3.1"
+
+"@motionone/generators@^10.12.0":
+  version "10.18.0"
+  resolved "https://registry.yarnpkg.com/@motionone/generators/-/generators-10.18.0.tgz#fe09ab5cfa0fb9a8884097feb7eb60abeb600762"
+  integrity sha512-+qfkC2DtkDj4tHPu+AFKVfR/C30O1vYdvsGYaR13W/1cczPrrcjdvYCj0VLFuRMN+lP1xvpNZHCRNM4fBzn1jg==
+  dependencies:
+    "@motionone/types" "^10.17.1"
+    "@motionone/utils" "^10.18.0"
+    tslib "^2.3.1"
+
+"@motionone/types@^10.12.0", "@motionone/types@^10.17.1":
+  version "10.17.1"
+  resolved "https://registry.yarnpkg.com/@motionone/types/-/types-10.17.1.tgz#cf487badbbdc9da0c2cb86ffc1e5d11147c6e6fb"
+  integrity sha512-KaC4kgiODDz8hswCrS0btrVrzyU2CSQKO7Ps90ibBVSQmjkrt2teqta6/sOG59v7+dPnKMAg13jyqtMKV2yJ7A==
+
+"@motionone/utils@^10.12.0", "@motionone/utils@^10.18.0":
+  version "10.18.0"
+  resolved "https://registry.yarnpkg.com/@motionone/utils/-/utils-10.18.0.tgz#a59ff8932ed9009624bca07c56b28ef2bb2f885e"
+  integrity sha512-3XVF7sgyTSI2KWvTf6uLlBJ5iAgRgmvp3bpuOiQJvInd4nZ19ET8lX5unn30SlmRH7hXbBbH+Gxd0m0klJ3Xtw==
+  dependencies:
+    "@motionone/types" "^10.17.1"
+    hey-listen "^1.0.8"
+    tslib "^2.3.1"
+
 "@napi-rs/wasm-runtime@^0.2.11":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.12.tgz#3e78a8b96e6c33a6c517e1894efbd5385a7cb6f2"
@@ -2548,6 +2613,15 @@
     "@tamagui/use-presence" "1.135.4"
     "@tamagui/web" "1.135.4"
 
+"@tamagui/animations-moti@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/animations-moti/-/animations-moti-1.135.4.tgz#9af838e9b8a0b0cb99ed689dbaaf7d9ff613fd22"
+  integrity sha512-pPgQSZw6nXGfA0t46djvvBys3dO6kOlDMC5avwj2LAAykE98dy9mYTiz29l5mIFa6aud5bpo1iBLI1Ihr489sw==
+  dependencies:
+    "@tamagui/core" "1.135.4"
+    "@tamagui/use-presence" "1.135.4"
+    moti "^0.30.0"
+
 "@tamagui/animations-react-native@1.135.4":
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/animations-react-native/-/animations-react-native-1.135.4.tgz"
@@ -2658,6 +2732,11 @@
     "@tamagui/stacks" "1.135.4"
     "@tamagui/use-controllable-state" "1.135.4"
 
+"@tamagui/colors@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/colors/-/colors-1.135.4.tgz#5c8546ce30e340fa97fd15ff259de5adeea79802"
+  integrity sha512-XPRhBK9ybI5nBcNqNBL/tpFrSyubXldRGbsR7sVaKT4/KXT/tpcA1+4dE/0ycI1kUcH6ra79yV0HC2u+8eWyjQ==
+
 "@tamagui/compose-refs@1.135.4":
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/compose-refs/-/compose-refs-1.135.4.tgz"
@@ -2674,12 +2753,30 @@
     "@tamagui/shorthands" "1.135.4"
     "@tamagui/web" "1.135.4"
 
+"@tamagui/config@^1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/config/-/config-1.135.4.tgz#13c6c65fa6bfb90d668167f1ff23b47bff5c0a60"
+  integrity sha512-97vTeeR6kfBWmda6fFvXiQzmuQE/P42/tkwejUAoDPHLHvUcaH/6cKP+CE4YT2l/VMvZyYht6qDbtRvcya8JDw==
+  dependencies:
+    "@tamagui/animations-css" "1.135.4"
+    "@tamagui/animations-moti" "1.135.4"
+    "@tamagui/animations-react-native" "1.135.4"
+    "@tamagui/colors" "1.135.4"
+    "@tamagui/core" "1.135.4"
+    "@tamagui/font-inter" "1.135.4"
+    "@tamagui/font-silkscreen" "1.135.4"
+    "@tamagui/react-native-media-driver" "1.135.4"
+    "@tamagui/shorthands" "1.135.4"
+    "@tamagui/theme-builder" "1.135.4"
+    "@tamagui/themes" "1.135.4"
+    "@tamagui/web" "1.135.4"
+
 "@tamagui/constants@1.135.4":
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/constants/-/constants-1.135.4.tgz"
   integrity sha512-RvOCUmlwOnDRhfV9yYYNzQW2+gllydkWST2P6dyK9x6xa0//HKV4CYJqmwbnLaU6aROjLzpY7KDTNqtZT7MoBQ==
 
-"@tamagui/core@1.135.4", "@tamagui/core@^1.135.4":
+"@tamagui/core@1.135.4":
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/core/-/core-1.135.4.tgz"
   integrity sha512-4x1QilwUMztiXE+6ZHvNq6f1GMyJfMm5uhK3Kp/Rxy9qW7llQc8eJD1A6nf+u4gf+XkinR8MOb6vh0PvtIxVXg==
@@ -2696,6 +2793,13 @@
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/create-context/-/create-context-1.135.4.tgz"
   integrity sha512-W95H+PpgVL3uHKCQTLaj6pqRpAm8oK/NG7HAc4ODII409P6Ka1DdrD9sA5KH7io5VHuxiTp08EMcVjExCFjWJA==
+
+"@tamagui/create-theme@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/create-theme/-/create-theme-1.135.4.tgz#012d8252952495f2fc5989f18a58398dc65b76c3"
+  integrity sha512-HNYEFhUT/1q+TgVOf0qded9F1mVz0+vmfVL4QXKIRzsSWQ2PVHg6O1KFVxr3v04iV4H1+faXXFwUW1BMm5xUfw==
+  dependencies:
+    "@tamagui/web" "1.135.4"
 
 "@tamagui/cubic-bezier-animator@1.135.4":
   version "1.135.4"
@@ -2775,6 +2879,20 @@
   dependencies:
     "@tamagui/compose-refs" "1.135.4"
     "@tamagui/web" "1.135.4"
+
+"@tamagui/font-inter@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/font-inter/-/font-inter-1.135.4.tgz#f35f31b92330237d063942b9ddefdeb81a9fc041"
+  integrity sha512-HSFbTBzQckplt+yPqEtlggvKqYyStnv29k4R2HuCeL3qawE+pwcEfR6NRt7S4tyr5HjnpPuuqrDk8lnrWxccBA==
+  dependencies:
+    "@tamagui/core" "1.135.4"
+
+"@tamagui/font-silkscreen@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/font-silkscreen/-/font-silkscreen-1.135.4.tgz#16db078ec05a02e3ea3e89a9920311eeb95aac84"
+  integrity sha512-nMn+9almBUNai0nDBANIqzIvP6nBsD029YOfB82MaHhZNLqIIGmFGMEy0k8vUzj4hNN8+wDgqfFb2pM2p6rQxQ==
+  dependencies:
+    "@tamagui/core" "1.135.4"
 
 "@tamagui/font-size@1.135.4":
   version "1.135.4"
@@ -3233,6 +3351,15 @@
     "@tamagui/helpers-tamagui" "1.135.4"
     "@tamagui/web" "1.135.4"
 
+"@tamagui/theme-builder@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/theme-builder/-/theme-builder-1.135.4.tgz#4087899b9bee6b32ec19eb703deafa2b1fb951ae"
+  integrity sha512-d2+POffE/0nHUq/eunK/GLP8RbgnmuZgcI0HQjqWDj8IK5Wh8dQoC80HEKwWuAy2OsLsTUpBQjDuU4vA4Hy8bw==
+  dependencies:
+    "@tamagui/create-theme" "1.135.4"
+    "@tamagui/web" "1.135.4"
+    color2k "^2.0.2"
+
 "@tamagui/theme@1.135.4":
   version "1.135.4"
   resolved "https://registry.npmjs.org/@tamagui/theme/-/theme-1.135.4.tgz"
@@ -3241,6 +3368,17 @@
     "@tamagui/constants" "1.135.4"
     "@tamagui/start-transition" "1.135.4"
     "@tamagui/web" "1.135.4"
+
+"@tamagui/themes@1.135.4":
+  version "1.135.4"
+  resolved "https://registry.yarnpkg.com/@tamagui/themes/-/themes-1.135.4.tgz#5da4b22354897ed0bf10047f60a1798c99293e3c"
+  integrity sha512-0N1PeS5v+Gs3+PB8VUsXaXB91Jy64ypwDgT6DdC/CIzIkUzEWch6uq2F7wPx63NmxAS9XvBTeq4TX24bTaGXjw==
+  dependencies:
+    "@tamagui/colors" "1.135.4"
+    "@tamagui/create-theme" "1.135.4"
+    "@tamagui/theme-builder" "1.135.4"
+    "@tamagui/web" "1.135.4"
+    color2k "^2.0.2"
 
 "@tamagui/timer@1.135.4":
   version "1.135.4"
@@ -4564,6 +4702,11 @@ color-string@^1.9.0:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
+color2k@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/color2k/-/color2k-2.0.3.tgz#a771244f6b6285541c82aa65ff0a0c624046e533"
+  integrity sha512-zW190nQTIoXcGCaU08DvVNFTmQhUpnJfVuAKfWqUQkflXKpaDdpaYoM0iluLS9lgJNHyBF58KKA2FBEwkD7wog==
+
 color@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/color/-/color-4.2.3.tgz"
@@ -5715,6 +5858,11 @@ expo-font@~14.0.8, expo-font@~14.0.9:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-image@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/expo-image/-/expo-image-3.0.10.tgz#a589098c3688d76c6e238ae90e1efc06ac4902b0"
+  integrity sha512-i4qNCEf9Ur7vDqdfDdFfWnNCAF2efDTdahuDy9iELPS2nzMKBLeeGA2KxYEPuRylGCS96Rwm+SOZJu6INc2ADQ==
+
 expo-json-utils@~0.15.0:
   version "0.15.0"
   resolved "https://registry.npmjs.org/expo-json-utils/-/expo-json-utils-0.15.0.tgz"
@@ -6029,6 +6177,27 @@ form-data@^4.0.0, form-data@^4.0.4:
     hasown "^2.0.2"
     mime-types "^2.1.12"
 
+framer-motion@^6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-6.5.1.tgz#802448a16a6eb764124bf36d8cbdfa6dd6b931a7"
+  integrity sha512-o1BGqqposwi7cgDrtg0dNONhkmPsUFDaLcKXigzuTFC5x58mE8iyTazxSudFzmT6MEyJKfjjU8ItoMe3W+3fiw==
+  dependencies:
+    "@motionone/dom" "10.12.0"
+    framesync "6.0.1"
+    hey-listen "^1.0.8"
+    popmotion "11.0.3"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
+framesync@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/framesync/-/framesync-6.0.1.tgz#5e32fc01f1c42b39c654c35b16440e07a25d6f20"
+  integrity sha512-fUY88kXvGiIItgNC7wcTOl0SNRCVXMKSWW2Yzfmn7EKNc+MpCzcz9DhdHcdjbrtN3c6R4H5dTY2jiCpPdysEjA==
+  dependencies:
+    tslib "^2.1.0"
+
 freeport-async@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/freeport-async/-/freeport-async-2.0.0.tgz"
@@ -6326,6 +6495,11 @@ hermes-parser@0.32.0:
   integrity sha512-g4nBOWFpuiTqjR3LZdRxKUkij9iyveWeuks7INEsMX741f3r9xxrOe8TeQfUxtda0eXmiIFiMQzoeSQEno33Hw==
   dependencies:
     hermes-estree "0.32.0"
+
+hey-listen@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.8.tgz#8e59561ff724908de1aa924ed6ecc84a56a9aa68"
+  integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
 
 hoist-non-react-statics@^3.3.0:
   version "3.3.2"
@@ -7585,6 +7759,11 @@ loose-envify@^1.0.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lottie-react-native@^7.3.4:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-7.3.4.tgz#774bc028e2b93dd88cd87ab84ac51a1c3e015cad"
+  integrity sha512-XUh7eGFb7ID8JRdU6U4N4cYQeYmjtdQRvd8ZXJ6xrdSsn5gZD0c79ITOREPcwJg4YupBFHgyV1GXdAHQP+KYUQ==
+
 lower-case@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz"
@@ -8164,6 +8343,13 @@ mkdirp@^1.0.4:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+moti@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/moti/-/moti-0.30.0.tgz#47ef9767a94e1898aad356af4016086736d64a66"
+  integrity sha512-YN78mcefo8kvJaL+TZNyusq6YA2aMFvBPl8WiLPy4eb4wqgOFggJOjP9bUr2YO8PrAt0uusmRG8K4RPL4OhCsA==
+  dependencies:
+    framer-motion "^6.5.1"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz"
@@ -8633,6 +8819,16 @@ pngjs@^3.3.0:
   version "3.4.0"
   resolved "https://registry.npmjs.org/pngjs/-/pngjs-3.4.0.tgz"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
+
+popmotion@11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-11.0.3.tgz#565c5f6590bbcddab7a33a074bb2ba97e24b0cc9"
+  integrity sha512-Y55FLdj3UxkR7Vl3s7Qr4e9m0onSnP8W7d/xQLsoJM40vs6UKHFdygs6SWryasTZYqugMjm3BepCF4CWXDiHgA==
+  dependencies:
+    framesync "6.0.1"
+    hey-listen "^1.0.8"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
 
 possible-typed-array-names@^1.0.0:
   version "1.1.0"
@@ -9876,6 +10072,14 @@ structured-headers@^0.4.1:
   resolved "https://registry.npmjs.org/structured-headers/-/structured-headers-0.4.1.tgz"
   integrity sha512-0MP/Cxx5SzeeZ10p/bZI0S6MpgD+yxAhi1BOQ34jgnMXsCq3j1t6tQnZu+KdlL7dvJTLT3g9xN8tl10TqgFMcg==
 
+style-value-types@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-5.0.0.tgz#76c35f0e579843d523187989da866729411fc8ad"
+  integrity sha512-08yq36Ikn4kx4YU6RD7jWEv27v4V+PUsOGa4n/as8Et3CuODMJQ00ENeAVXAeydX4Z2j1XHZF1K2sX4mGl18fA==
+  dependencies:
+    hey-listen "^1.0.8"
+    tslib "^2.1.0"
+
 styleq@^0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/styleq/-/styleq-0.1.3.tgz"
@@ -10195,7 +10399,7 @@ tsconfig-paths@^4.1.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@^2.0.3, tslib@^2.4.0:
+tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0:
   version "2.8.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==

@@ -7,7 +7,7 @@ import { DashboardScreenProps } from "./props"
  * MAIN
  * ===========================
  */
-export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
+export const DashboardScreen: FC<DashboardScreenProps> = () => {
   // =============== VIEWS
   return <></>
 }

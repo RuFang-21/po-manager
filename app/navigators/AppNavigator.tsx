@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Config from "@/config"
 import { useAuth } from "@/context/AuthContext"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
+import SignInScreen from "@/screens/SignInScreen"
 import { WelcomeScreen } from "@/screens/WelcomeScreen"
 
 import type { AppStackParamList, NavigationProps } from "./navigationTypes"
@@ -27,12 +28,14 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 const AppStack = () => {
   const { isAuthenticated } = useAuth()
 
+  console.log("isAuthenticated", isAuthenticated)
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={isAuthenticated ? "Welcome" : "Welcome"}
+      initialRouteName={isAuthenticated ? "Welcome" : "SignIn"}
     >
       {isAuthenticated ? (
         <>
@@ -40,12 +43,14 @@ const AppStack = () => {
         </>
       ) : (
         <>
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="SignIn" component={SignInScreen} />
         </>
       )}
 
       {/** 🔥 Your screens go here */}
       {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      {/* <Stack.Screen name="Dashboard" component={DashboardScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} /> */}
     </Stack.Navigator>
   )
 }

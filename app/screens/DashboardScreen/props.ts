@@ -1,4 +1,4 @@
-import { BottomTabScreenProps } from "@app/navigators/BottomTabNavigator"
+import { BottomTabScreenProps } from "@/navigators/BottomTabNavigators"
 
 /**
  * ===========================

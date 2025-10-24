@@ -1,6 +1,7 @@
 import { useCallback } from "react"
-import { CommunityScreen, DiscoverScreen, HomepageScreen, ProfileScreen } from "@app/screens"
 import { BottomTabBarProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+
+import { DashboardScreen } from "@/screens"
 
 import BottomTabBar from "./BottomTabBar"
 import { BottomTabParamList } from "./props"
@@ -24,8 +25,8 @@ export const BottomTabNavigator = () => {
       }}
       tabBar={renderBottomTab}
     >
-      <Tab.Screen name="Dashboard" component={HomepageScreen} />
-      <Tab.Screen name="New" component={DiscoverScreen} />
+      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      {/* <Tab.Screen name="New" component={DiscoverScreen} /> */}
     </Tab.Navigator>
   )
 }

@@ -20,9 +20,9 @@ import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
 import * as Linking from "expo-linking"
-import { TamaguiProvider } from "@tamagui/core"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
+import { TamaguiProvider } from "tamagui"
 
 import { AuthProvider } from "./context/AuthContext"
 import { initI18n } from "./i18n"
