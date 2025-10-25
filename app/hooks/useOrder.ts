@@ -28,7 +28,7 @@ export const useOrders = () => {
   }, [loadOrders])
 
   const updateStatus = useCallback(
-    async (id: number, status: "pending" | "in-progress" | "completed") => {
+    async (id: number, status: "pending" | "in progress" | "completed") => {
       try {
         await databaseService.updateProductionOrderStatus(id, status)
         await loadOrders() // Refresh the list
@@ -54,7 +54,7 @@ export const useOrders = () => {
     }
   }, [])
 
-  const filterByStatus = useCallback(async (status: "pending" | "in-progress" | "completed") => {
+  const filterByStatus = useCallback(async (status: "pending" | "in progress" | "completed") => {
     try {
       setLoading(true)
       setError(null)
@@ -113,7 +113,7 @@ export const useOrderById = (id: string) => {
     loadOrder()
   }, [loadOrder])
 
-  const updateStatus = async (status: "pending" | "in-progress" | "completed") => {
+  const updateStatus = async (status: "pending" | "in progress" | "completed") => {
     try {
       if (!order) {
         throw new Error("No order loaded")

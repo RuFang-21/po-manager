@@ -1,7 +1,7 @@
 import { GetProps } from "tamagui"
 import { XStack } from "tamagui"
 
-export type ChipStatus = "pending" | "in-progress" | "completed"
+export type ChipStatus = "pending" | "in progress" | "completed"
 
 export interface ChipProps extends GetProps<typeof XStack> {
   /**

@@ -36,7 +36,7 @@ export const useDatabase = () => {
     }
   }
 
-  const updateOrderStatus = async (id: number, status: "pending" | "in-progress" | "completed") => {
+  const updateOrderStatus = async (id: number, status: "pending" | "in progress" | "completed") => {
     try {
       await databaseService.updateProductionOrderStatus(id, status)
       await loadProductionOrders() // Refresh the list
@@ -57,7 +57,7 @@ export const useDatabase = () => {
     }
   }
 
-  const filterByStatus = async (status: "pending" | "in-progress" | "completed") => {
+  const filterByStatus = async (status: "pending" | "in progress" | "completed") => {
     try {
       setLoading(true)
       const orders = await databaseService.filterByStatus(status)

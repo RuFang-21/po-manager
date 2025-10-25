@@ -19,12 +19,24 @@ cd po-manager
 yarn install
 ```
 
-2. **Start the development server:**
+2. **Set up environment variables:**
+Create a `.env` file in the root directory and add your OpenAI API key:
+```bash
+cp .env.example .env
+# Edit .env file and add your OpenAI API key
+```
+
+Example `.env` content:
+```
+EXPO_PUBLIC_OPENAI_API_KEY=your_openai_api_key_here
+```
+
+3. **Start the development server:**
 ```bash
 yarn start
 ```
 
-3. **Run on specific platforms:**
+4. **Run on specific platforms:**
 ```bash
 yarn ios         # Run on iOS simulator
 yarn android     # Run on Android simulator/device
@@ -115,8 +127,18 @@ The database layer implements a functional pattern with the following structure:
 
 ## AI Usage Log
 
+## 🧠 AI Usage Log
+
+This section documents how AI assistance was applied throughout the development process, including prompt objectives, responses, and real implementation outcomes.
+
 | **Prompt** | **AI Response Summary** | **How You Applied It** |
 |-------------|--------------------------|--------------------------|
+| **Digest this. (SuDu AI React Native Mobile Developer Pre-Task document)** | Summarized the full pre-task document into a structured breakdown covering overview, requirements, deliverables, and evaluation criteria. | Used the digest to clearly understand task scope and plan the development flow (screens, SQLite schema, README requirements). |
+| **Have a look at the AI Assistant task. I will need to have a system prompt for this AI Agent, I will be using GPT for this task. Use COSTAR template.** | Created a COSTAR-based system prompt defining Context, Objective, Style, Tone, Audience, and Response for the AI Assistant. | Used this prompt to shape the AI assistant’s behavior and ensure consistent output aligned with factory-use context. |
+| **I will pull the needed data from database in JSON format and feed to GPT via API input.** | Suggested best practice for feeding SQLite data as JSON into GPT API input, maintaining structured and safe integration. | Implemented the design by preparing production orders in JSON format before sending to GPT. |
+| **Output the system prompt in code for me to copy and paste.** | Provided the system prompt wrapped in a TypeScript constant (`SYSTEM_PROMPT`) for direct import into the codebase. | Added the exported constant into the project for GPT API calls, improving modularity and maintainability. |
+| **Currently like this (showed OpenAI client code)** | Adjusted the GPT call to fit the new `responses.create()` OpenAI SDK format, integrating the system prompt and SQLite data. | Replaced sample “Talk like a pirate” with `SYSTEM_PROMPT` and SQLite JSON input to generate contextual insights. |
+| **I want the response format in JSON so that I can pick the items and render in my own UI components.** | Revised the system prompt to enforce strict JSON output with `summary` and `insights` structure. | Implemented this structure to easily parse GPT output and render insights dynamically in the app UI. |
 | **Make the New Order screen capable of submitting the form using React Hook Form** | Implemented React Hook Form integration with TypeScript validation, form controllers, and database service connection for production order creation. | Added comprehensive form handling with validation rules, Controller components, form submission logic, and database integration in `NewOrderScreen` component. |
 | **Fix issues with DateInput and Calendar components** | Diagnosed `RangeError` issues in the Calendar component caused by undefined Tamagui design tokens. Implemented fallback values and null safety checks. | Fixed Calendar component crashes by adding token fallbacks, error boundaries, and proper handling of undefined design system tokens in DateInput implementation. |
 | **Replace Alert dialogs with Toast messages** | Provided `react-native-toast-message` setup, configuration, and migration strategy from native Alert dialogs to toast notifications for better UX. | Replaced all `Alert.alert()` calls with `Toast.show()` throughout the application, implemented Toast provider setup, and created consistent success/error notification patterns. |

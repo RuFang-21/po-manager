@@ -1,10 +1,10 @@
 import { memo } from "react"
 import { Platform, TouchableOpacity } from "react-native"
-import LeftIcon from "@assets/icons/arrow_left.svg"
 import { useNavigation } from "@react-navigation/native"
-// import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Stack, XStack } from "tamagui"
+
+import LeftIcon from "@assets/icons/arrow_left.svg"
 
 import { ScreenHeaderProps } from "./props"
 import { Text } from "../Text"
@@ -51,6 +51,8 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
       paddingHorizontal={"$screenPadding"}
       paddingTop={(disableScreenPaddingTop ? 0 : insets?.top) + (isIos ? 0 : 8)}
       paddingBottom={"$sm"}
+      borderBottomColor={"$line"}
+      borderBottomWidth={0.5}
       {...containerProps}
     >
       <XStack

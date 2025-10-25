@@ -67,7 +67,7 @@ export const getProductionOrderById = async (id: number) => {
 
 export const updateProductionOrderStatus = async (
   id: number,
-  status: "pending" | "in-progress" | "completed",
+  status: "pending" | "in progress" | "completed",
 ) => {
   if (!db) {
     console.log("Database not initialized, initializing now...")
@@ -111,7 +111,7 @@ export const searchProductionOrders = async (query: string) => {
   )
 }
 
-export const filterByStatus = async (status: "pending" | "in-progress" | "completed") => {
+export const filterByStatus = async (status: "pending" | "in progress" | "completed") => {
   if (!db) throw new Error("Database not initialized")
   return await db.getAllAsync<ProductionOrder>(
     "SELECT * FROM production_orders WHERE status = ? ORDER BY id DESC",

@@ -3,6 +3,7 @@ import { TouchableOpacity } from "react-native"
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs"
 import { getTokens, XStack } from "tamagui"
 
+import AiIcon from "@assets/icons/bottomTab/ai.svg"
 import HomepageIcon from "@assets/icons/bottomTab/homepage.svg"
 import OrderIcon from "@assets/icons/bottomTab/order.svg"
 
@@ -22,6 +23,10 @@ const BottomTabBarView: React.FC<BottomTabBarProps> = (props) => {
 
   const tabItems = useMemo(
     () => [
+      {
+        name: "AiInsight",
+        Icon: AiIcon,
+      },
       {
         name: "Dashboard",
         Icon: HomepageIcon,
@@ -46,6 +51,8 @@ const BottomTabBarView: React.FC<BottomTabBarProps> = (props) => {
           color={
             focused ? tamaguiTokens.color.$primaryText.val : tamaguiTokens.color.$secondaryText.val
           }
+          height={24}
+          width={24}
           fill={focused ? tamaguiTokens.color.$primaryText.val : "white"}
         />
       )

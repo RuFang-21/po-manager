@@ -51,8 +51,8 @@ export const OrderDetailScreen: FC<OrderDetailScreenProps> = (props) => {
   const getNextStatus = (currentStatus: string) => {
     switch (currentStatus) {
       case "pending":
-        return "in-progress"
-      case "in-progress":
+        return "in progress"
+      case "in progress":
         return "completed"
       default:
         return currentStatus
@@ -63,7 +63,7 @@ export const OrderDetailScreen: FC<OrderDetailScreenProps> = (props) => {
     switch (currentStatus) {
       case "pending":
         return "Start Progress"
-      case "in-progress":
+      case "in progress":
         return "Mark Complete"
       case "completed":
         return "Completed"
@@ -75,7 +75,7 @@ export const OrderDetailScreen: FC<OrderDetailScreenProps> = (props) => {
   const handleStatusUpdate = async () => {
     if (!order || order.status === "completed") return
 
-    const nextStatus = getNextStatus(order.status) as "pending" | "in-progress" | "completed"
+    const nextStatus = getNextStatus(order.status) as "pending" | "in progress" | "completed"
     await updateStatus(nextStatus)
   }
 

@@ -17,7 +17,7 @@ const getStatusColors = (status: ChipStatus) => {
         borderColor: "$orange7",
         textColor: "$orange11",
       }
-    case "in-progress":
+    case "in progress":
       return {
         backgroundColor: "$blue2",
         borderColor: "$blue7",

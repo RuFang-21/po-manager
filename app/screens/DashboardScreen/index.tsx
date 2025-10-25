@@ -9,6 +9,7 @@ import SearchIcon from "@assets/icons/search.svg"
 
 import { DashboardScreenProps } from "./props"
 import { Chip, Screen, ScreenHeader, Text, TextInput } from "../../components"
+import { useAuth } from "../../context/AuthContext"
 import { ProductionOrder } from "../../database/schema"
 import { useOrders } from "../../hooks/useOrder"
 
@@ -20,6 +21,7 @@ import { useOrders } from "../../hooks/useOrder"
 export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
   const { navigation } = props
   const { orders, loading, error, searchOrders, loadOrders } = useOrders()
+  const { logout } = useAuth()
   const [searchQuery, setSearchQuery] = useState("")
 
   // refetch data when returning to dashboard
@@ -106,7 +108,7 @@ export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
           >
             <XStack justifyContent="space-between" alignItems="center">
               <Text fontSize={"$lg"} fontWeight="bold">
-                {item.finished_goods}
+                {`#${item.id} ${item.finished_goods}`}
               </Text>
               <Chip status={item.status} label={item.status} size="small" />
             </XStack>
@@ -143,7 +145,7 @@ export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
           fontWeight: "bold",
         }}
         right={
-          <TouchableOpacity>
+          <TouchableOpacity onPress={logout}>
             <Logout width={24} height={24} />
           </TouchableOpacity>
         }
@@ -182,16 +184,6 @@ export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
             keyboardDismissMode="none"
             removeClippedSubviews={false}
             ListEmptyComponent={renderListEmptyComponent}
-            ListHeaderComponent={() => {
-              return (
-                <Stack>
-                  {/* Show output of ai model */}
-                  <Text fontSize="$xl" fontWeight="bold" marginBottom="$2">
-                    Hello
-                  </Text>
-                </Stack>
-              )
-            }}
           />
         )}
       </Stack>

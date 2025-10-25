@@ -1,5 +1,6 @@
 export * from "./Button"
 export * from "./Chip"
+export * from "./LottieView"
 export * from "./Screen"
 export * from "./Text"
 export * from "./Spinner"

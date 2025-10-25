@@ -5,7 +5,8 @@ export interface ProductionOrder {
   raw_materials: string
   due_date: string
   storage_location: string
-  status: "pending" | "in-progress" | "completed"
+  status: "pending" | "in progress" | "completed"
+  created_at?: string
 }
 
 export const CREATE_PRODUCTION_ORDERS_TABLE = `
@@ -16,7 +17,7 @@ export const CREATE_PRODUCTION_ORDERS_TABLE = `
     raw_materials TEXT NOT NULL,
     due_date TEXT NOT NULL,
     storage_location TEXT NOT NULL,
-    status TEXT CHECK(status IN ('pending', 'in-progress', 'completed')) DEFAULT 'pending'
+    status TEXT CHECK(status IN ('pending', 'in progress', 'completed')) DEFAULT 'pending'
   );
 `
 
@@ -35,7 +36,7 @@ export const SAMPLE_DATA = [
     raw_materials: "Flour, Sugar, Vanilla Extract, Butter, Eggs",
     due_date: "2024-10-15",
     storage_location: "Warehouse A",
-    status: "in-progress",
+    status: "in progress",
   },
   {
     finished_goods: "Blueberry Muffins",
