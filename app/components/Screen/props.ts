@@ -10,7 +10,7 @@ import {
 import { SystemBarsProps } from "react-native-edge-to-edge"
 import { KeyboardAvoidingViewProps } from "react-native-keyboard-controller"
 
-import { ExtendedEdge } from "@/utils/useSafeAreaInsetsStyle"
+import { ExtendedEdge } from "../../utils/useSafeAreaInsetsStyle"
 
 export interface BaseScreenProps {
   /**

@@ -25,6 +25,7 @@ import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-c
 import { TamaguiProvider } from "tamagui"
 
 import { AuthProvider } from "./context/AuthContext"
+import { databaseService } from "./database/database"
 import { initI18n } from "./i18n"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
@@ -59,11 +60,26 @@ export function App() {
 
   // const [areFontsLoaded, fontLoadError] = useFonts(customFontsToLoad)
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
+  const [isDatabaseInitialized, setIsDatabaseInitialized] = useState(false)
 
   useEffect(() => {
     initI18n()
       .then(() => setIsI18nInitialized(true))
       .then(() => loadDateFnsLocale())
+  }, [])
+
+  useEffect(() => {
+    databaseService
+      .init()
+      .then(() => {
+        console.log("Database initialized in App")
+        setIsDatabaseInitialized(true)
+      })
+      .catch((error) => {
+        console.error("Failed to initialize database in App:", error)
+        // Still set to true to allow app to continue, but with error handling in components
+        setIsDatabaseInitialized(true)
+      })
   }, [])
 
   // Before we show the app, we have to wait for our state to be ready.
@@ -72,7 +88,7 @@ export function App() {
   // In iOS: application:didFinishLaunchingWithOptions:
   // In Android: https://stackoverflow.com/a/45838109/204044
   // You can replace with your own loading component if you wish.
-  if (!isNavigationStateRestored || !isI18nInitialized) {
+  if (!isNavigationStateRestored || !isI18nInitialized || !isDatabaseInitialized) {
     return null
   }
 

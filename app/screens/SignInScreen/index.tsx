@@ -1,14 +1,14 @@
+// Add this temporary logout button to clear stored data
 import { FC, useState } from "react"
 import { Image } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { Stack, Text, YStack } from "tamagui"
 
-import { Button } from "@/components/Button"
-import { Screen } from "@/components/Screen"
-import { TextInput } from "@/components/TextInput"
-import { useAuth } from "@/context/AuthContext"
-
 import SignInScreenProps, { SignInFormFieldValues } from "./props"
+import { Button } from "../../components/Button"
+import { Screen } from "../../components/Screen"
+import { TextInput } from "../../components/TextInput"
+import { useAuth } from "../../context/AuthContext"
 
 /**
  * ===========================
@@ -32,15 +32,16 @@ export const SignInScreen: FC<SignInScreenProps> = ({ navigation: _navigation })
 
   const onSubmit = async (data: SignInFormFieldValues) => {
     setIsLoading(true)
+
     try {
-      // Simulate a brief loading time
+      // simulate a brief loading time
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      // Set authentication - no matter what email/password is entered
-      setAuthEmail(data.email)
-      setAuthToken("mock-auth-token-12345")
+      // set authentication - no matter what email/password is entered
 
-      // Navigation will be handled automatically by the app when isAuthenticated becomes true
+      setAuthEmail(data.email)
+
+      setAuthToken("mock-auth-token-12345")
     } catch (error) {
       console.error("Sign in error:", error)
     } finally {
@@ -70,7 +71,6 @@ export const SignInScreen: FC<SignInScreenProps> = ({ navigation: _navigation })
         marginTop={-30}
       >
         {/* App Logo */}
-
         <Stack paddingTop={"$xl"}>
           <Text fontSize={"$3xl"} fontWeight="bold" color="$color" textAlign="center">
             Production Order Management
@@ -78,7 +78,7 @@ export const SignInScreen: FC<SignInScreenProps> = ({ navigation: _navigation })
         </Stack>
 
         {/* Login Form */}
-        <YStack gap="$4" paddingTop={"$4xl"}>
+        <YStack gap="$4" paddingTop={"$2"}>
           <YStack gap="$2">
             <Text fontSize="$md" fontWeight="600" color="$color">
               Email

@@ -12,6 +12,27 @@ module.exports = {
     "prettier",
   ],
   plugins: ["reactotron", "prettier"],
+  settings: {
+    "import/resolver": {
+      typescript: {
+        project: "./tsconfig.json",
+      },
+      alias: {
+        map: [
+          ["@", "./app"],
+          ["@assets", "./assets"],
+          ["@/components", "./app/components"],
+          ["@/screens", "./app/screens"],
+          ["@/database", "./app/database"],
+          ["@/hooks", "./app/hooks"],
+          ["@/context", "./app/context"],
+          ["@/utils", "./app/utils"],
+          ["@/config", "./app/config"],
+        ],
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+      },
+    },
+  },
   rules: {
     "prettier/prettier": "error",
     // typescript-eslint

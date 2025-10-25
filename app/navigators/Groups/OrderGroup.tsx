@@ -1,18 +1,18 @@
 import { CommonGroupProps } from "./props"
-import { SignInScreen } from "../../screens"
+import { OrderDetailScreen } from "../../screens"
 
 /**
  * ===========================
  * MAIN
  * ===========================
  */
-export const createAuthGroup = (props: CommonGroupProps) => {
+export const createOrderGroup = (props: CommonGroupProps) => {
   const { Stack } = props
 
   // =============== VIEWS
   return (
     <Stack.Group>
-      <Stack.Screen name="Signin" component={SignInScreen} />
+      <Stack.Screen name="OrderDetail" component={OrderDetailScreen} />
     </Stack.Group>
   )
 }
@@ -22,4 +22,4 @@ export const createAuthGroup = (props: CommonGroupProps) => {
  * EXPORTS
  * ===========================
  */
-export default createAuthGroup
+export default createOrderGroup

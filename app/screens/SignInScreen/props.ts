@@ -1,6 +1,6 @@
 import { SvgProps } from "react-native-svg"
 
-import { AppStackScreenProps } from "@/navigators/AppNavigator/index"
+import { AppStackScreenProps } from "../../navigators/AppNavigator/index"
 
 /**
  * ===========================

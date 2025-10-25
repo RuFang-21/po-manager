@@ -1,4 +1,4 @@
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo } from "react"
+import { createContext, FC, PropsWithChildren, useContext } from "react"
 import { useMMKVString } from "react-native-mmkv"
 
 export type AuthContextType = {
@@ -19,33 +19,30 @@ export const AuthProvider: FC<PropsWithChildren<AuthProviderProps>> = ({ childre
   const [authToken, setAuthToken] = useMMKVString("AuthProvider.authToken")
   const [authEmail, setAuthEmail] = useMMKVString("AuthProvider.authEmail")
 
-  const logout = useCallback(() => {
+  const isAuthenticated = !!authToken
+
+  const logout = () => {
     setAuthToken(undefined)
-    setAuthEmail("")
-  }, [setAuthEmail, setAuthToken])
+    setAuthEmail(undefined)
+  }
 
-  const validationError = useMemo(() => {
-    if (!authEmail || authEmail.length === 0) return "can't be blank"
-    if (authEmail.length < 6) return "must be at least 6 characters"
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail)) return "must be a valid email address"
-    return ""
-  }, [authEmail])
-
-  const value = {
-    isAuthenticated: !!authToken,
+  const contextValue: AuthContextType = {
+    isAuthenticated,
     authToken,
     authEmail,
     setAuthToken,
-    setAuthEmail,
+    setAuthEmail: (email: string) => setAuthEmail(email),
     logout,
-    validationError,
+    validationError: "", // Add validation logic if needed
   }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
 }
 
 export const useAuth = () => {
   const context = useContext(AuthContext)
-  if (!context) throw new Error("useAuth must be used within an AuthProvider")
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider")
+  }
   return context
 }

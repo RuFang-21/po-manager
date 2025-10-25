@@ -8,12 +8,13 @@ import { ComponentProps } from "react"
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
 
-import Config from "../../config"
-import { ErrorBoundary } from "../../screens/ErrorScreen/ErrorBoundary"
-import { createAuthGroup } from "../Groups"
-import { navigationRef, useBackButtonHandler } from "../navigationUtilities"
-import { AppStackParamList } from "./props"
-import { BottomTabNavigator } from "../BottomTabNavigators"
+import Config from "../config"
+import { AppStackParamList } from "./AppNavigator/props"
+import BottomTabNavigator from "./BottomTabNavigators"
+import { createAuthGroup, createOrderGroup } from "./Groups"
+import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
+import { useAuth } from "../context/AuthContext"
+import { ErrorBoundary } from "../screens/ErrorScreen/ErrorBoundary"
 
 /**
  * This is a list of all the route names that will exit the app if the back button
@@ -30,12 +31,24 @@ export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStack
 const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = () => {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Signin">
-      <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+  const { isAuthenticated } = useAuth()
 
-      {/* ============== Auth Group */}
-      {createAuthGroup({ Stack })}
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {isAuthenticated ? (
+        // User is signed in
+        <>
+          <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+          {/* ============== Order Group */}
+          {createOrderGroup({ Stack })}
+        </>
+      ) : (
+        // User is NOT signed in
+        <>
+          {/* ============== Auth Group */}
+          {createAuthGroup({ Stack })}
+        </>
+      )}
     </Stack.Navigator>
   )
 }
@@ -55,4 +68,4 @@ export const AppNavigator = (props: NavigationProps) => {
   )
 }
 
-export * from "./props"
+export * from "./AppNavigator/props"

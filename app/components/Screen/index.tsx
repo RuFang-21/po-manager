@@ -6,9 +6,8 @@ import { SystemBars } from "react-native-edge-to-edge"
 import { KeyboardAvoidingView } from "react-native-keyboard-controller"
 import { View } from "tamagui"
 
-import { useSafeAreaInsetsStyle } from "@/utils/useSafeAreaInsetsStyle"
-
 import { AutoScreenProps, ScreenPreset, ScreenProps, ScrollScreenProps } from "./props"
+import { useSafeAreaInsetsStyle } from "../../utils/useSafeAreaInsetsStyle"
 
 export const DEFAULT_BOTTOM_OFFSET = 50
 

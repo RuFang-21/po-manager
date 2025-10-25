@@ -17,5 +17,7 @@ export type AppStackParamList = {
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
   Welcome: undefined
   BottomTab: NavigatorScreenParams<BottomTabParamList>
+  MainTabs: NavigatorScreenParams<BottomTabParamList>
   Signin: undefined
+  OrderDetail: { id: string }
 }

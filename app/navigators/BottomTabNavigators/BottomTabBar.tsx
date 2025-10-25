@@ -1,8 +1,9 @@
 import { memo, useCallback, useMemo } from "react"
 import { TouchableOpacity } from "react-native"
-import HomepageIcon from "@assets/icons/bottomTab/homepage.svg"
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs"
 import { getTokens, XStack } from "tamagui"
+
+import HomepageIcon from "@assets/icons/bottomTab/homepage.svg"
 
 import { BottomTabParamList } from "./props"
 

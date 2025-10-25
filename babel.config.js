@@ -10,8 +10,10 @@ const plugins = [
       extensions: [".js", ".jsx", ".ts", ".tsx"],
       alias: {
         // This has to be mirrored in tsconfig.json
-        "^@app/(.+)": "./app/\\1",
-        "^@assets/(.+)": "./assets/\\1",
+        // "^@app/(.+)": "./app/\\1",
+        // "^@assets/(.+)": "./assets/\\1",
+        "@assets": "./assets",
+        "@": "./src",
       },
     },
   ],

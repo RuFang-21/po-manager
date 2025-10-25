@@ -4,7 +4,7 @@ import { Button } from "@tamagui/button"
 import { YStack } from "@tamagui/stacks"
 import { Paragraph, H3 } from "@tamagui/text"
 
-import { Screen } from "@/components/Screen"
+import { Screen } from "../../components/Screen"
 
 export interface ErrorDetailsProps {
   error: Error

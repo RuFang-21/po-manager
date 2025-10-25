@@ -8,10 +8,9 @@ import {
   useNavigation,
 } from "@react-navigation/native"
 
-import Config from "@/config"
-import { PersistNavigationConfig } from "@/config/config.base"
-import { useIsMounted } from "@/utils/useIsMounted"
-
+import Config from "../config"
+import { PersistNavigationConfig } from "../config/config.base"
+import { useIsMounted } from "../utils/useIsMounted"
 import { AppStackParamList, NavigationProps } from "./AppNavigator/index"
 
 /**

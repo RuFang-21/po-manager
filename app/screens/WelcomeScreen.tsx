@@ -1,9 +1,9 @@
 import { FC } from "react"
 import { Stack, Text } from "tamagui"
 
-import { Button } from "@/components"
-import { Screen } from "@/components/Screen"
-import type { AppStackScreenProps } from "@/navigators/navigationTypes"
+import { Button } from "../components"
+import { Screen } from "../components/Screen"
+import type { AppStackScreenProps } from "../navigators/AppNavigator"
 
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
 
