@@ -143,3 +143,11 @@ This section documents how AI assistance was applied throughout the development 
 | **Replace Alert dialogs with Toast messages** | Provided `react-native-toast-message` setup, configuration, and migration strategy from native Alert dialogs to toast notifications for better UX. | Replaced all `Alert.alert()` calls with `Toast.show()` throughout the application, implemented Toast provider setup, and created consistent success/error notification patterns. |
 | **Display latest data first on the Dashboard** | Modified SQLite database queries to implement `ORDER BY id DESC` sorting for chronological data display with the latest entries first. | Updated `getAllProductionOrders()`, `searchProductionOrders()`, and related database functions to show the newest production orders first in the dashboard interface. |
 | **Enable multiline input for raw materials field** | Extended the `TextInput` component architecture with an `isMultiline` prop while maintaining form validation and styling consistency. | Implemented multiline capability in the `TextInput` component with proper React Hook Form integration for the raw materials input field in the order creation form. |
+
+##  Screenshots
+![Screenshot_20251025_210844_com pomanager](https://github.com/user-attachments/assets/2aa7ddbf-f41e-4e9a-bfb2-9c93fe690e56)![Screenshot_20251025_210900_com pomanager](https://github.com/user-attachments/assets/26d5d81d-5561-4926-b52d-a2a59fcbf902)
+![Screenshot_20251025_210852_com pomanager](https://github.com/user-attachments/assets/b104ac03-556b-4b75-9cda-73b47b2306f4)
+![Screenshot_20251025_210848_com pomanager](https://github.com/user-attachments/assets/55c20cc1-b147-4716-b661-f3e8399e76d3)
+
+![Screenshot_20251025_210841_com pomanager](https://github.com/user-attachments/assets/47cf583e-020a-42ba-a491-a4e0b4d434de)
+![Screenshot_20251025_210837_com pomanager](https://github.com/user-attachments/assets/7e9675b0-ebe7-4c69-b04c-d06eddcea3af)
