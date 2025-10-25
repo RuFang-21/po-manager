@@ -28,7 +28,7 @@ cp .env.example .env
 
 Example `.env` content:
 ```
-EXPO_PUBLIC_OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 3. **Start the development server:**
