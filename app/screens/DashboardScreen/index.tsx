@@ -182,6 +182,16 @@ export const DashboardScreen: FC<DashboardScreenProps> = (props) => {
             keyboardDismissMode="none"
             removeClippedSubviews={false}
             ListEmptyComponent={renderListEmptyComponent}
+            ListHeaderComponent={() => {
+              return (
+                <Stack>
+                  {/* Show output of ai model */}
+                  <Text fontSize="$xl" fontWeight="bold" marginBottom="$2">
+                    Hello
+                  </Text>
+                </Stack>
+              )
+            }}
           />
         )}
       </Stack>

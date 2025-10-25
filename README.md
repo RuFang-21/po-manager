@@ -1,77 +1,124 @@
-# Welcome to your new ignited app!
+# PO Manager App
 
-> The latest and greatest boilerplate for Infinite Red opinions
+A React Native application for Production Order (PO) management built with Expo, TypeScript, and Tamagui.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+## Setup Instructions
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+### Prerequisites
+- Node.js (version 18 or higher)
+- Yarn package manager
+- Expo CLI
+- iOS Simulator (for iOS development) or Android Studio (for Android development)
 
-## Getting Started
+### Installation
 
+1. **Clone the repository and install dependencies:**
 ```bash
+git clone <repository-url>
+cd po-manager
 yarn install
+```
+
+2. **Start the development server:**
+```bash
 yarn start
 ```
 
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
-
+3. **Run on specific platforms:**
 ```bash
-yarn build:ios:sim # build for ios simulator
-yarn build:ios:device # build for ios device
-yarn build:ios:prod # build for ios device
+yarn ios         # Run on iOS simulator
+yarn android     # Run on Android simulator/device
 ```
 
-### `./assets` directory
 
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+## Technical Notes
 
-```tree
-assets
-├── icons
-└── images
+### Architecture Overview
+
+The application follows a modern React Native architecture with the following key components:
+
+#### Core Technologies
+- **React Native with Expo**: Cross-platform mobile development framework
+- **TypeScript**: Type safety and enhanced development experience
+- **Tamagui**: Performance-optimized design system with compile-time styling
+- **SQLite**: Local database for production order management
+- **React Navigation**: Navigation library with Bottom Tab and Stack navigators
+- **React Hook Form**: Form validation and state management
+
+#### Project Structure
+
+```
+app/
+├── components/          # Reusable UI components
+├── screens/            # Screen components and navigation
+├── database/           # SQLite database layer
+├── hooks/             # Custom React hooks
+├── navigators/        # Navigation configuration
+├── services/          # API and external services
+├── context/           # React Context providers
+├── utils/             # Utility functions
+└── theme/             # Tamagui theme configuration
 ```
 
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+#### Database Architecture
 
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
+The application uses SQLite with a functional approach for data management:
 
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
+- **Schema**: Production orders with fields for customer details, items, quantities, and status
+- **Operations**: CRUD operations with optimized queries (ORDER BY id DESC for latest-first)
+- **Connection Management**: Single database connection with proper initialization
+- **Data Flow**: Functional approach with exported database functions
 
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
+#### Key Features Implementation
 
-How to use your `icon` or `image` assets:
+1. **Production Order Management**
+   - Create new production orders with form validation
+   - View all orders in dashboard (latest first)
+   - Update order status (Pending → In Progress → Completed)
+   - Search functionality across all order fields
 
-```typescript
-import { Image } from 'react-native';
+2. **Form Handling**
+   - React Hook Form integration with TypeScript
+   - Real-time validation with custom error messages
+   - Date picker integration for delivery dates
+   - Multiline text input for raw materials
 
-const MyComponent = () => {
-  return (
-    <Image source={require('assets/images/my_image.png')} />
-  );
-};
-```
+3. **UI/UX Design**
+   - Tamagui design system with consistent spacing and colors
+   - Bottom sheet navigation for enhanced mobile experience
+   - Toast notifications for user feedback
+   - Responsive layouts with safe area handling
 
-## Running Maestro end-to-end tests
+4. **State Management**
+   - React Context for authentication state
+   - Custom hooks for data fetching and caching
+   - useFocusEffect for screen refresh on navigation
 
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
+### Database Logic
 
-## Next Steps
+The database layer implements a functional pattern with the following structure:
 
-### Ignite Cookbook
+#### Core Functions
+- `initDatabase()`: Initialize SQLite database and create tables
+- `getAllProductionOrders()`: Fetch all orders with latest-first ordering
+- `getProductionOrderById(id)`: Fetch specific order by ID
+- `createProductionOrder(order)`: Insert new production order
+- `updateProductionOrderStatus(id, status)`: Update order status
+- `searchProductionOrders(query)`: Search across order fields
 
-[Ignite Cookbook](https://ignitecookbook.com/) is an easy way for developers to browse and share code snippets (or “recipes”) that actually work.
 
-### Upgrade Ignite boilerplate
+#### Query Optimization
+- All list queries use `ORDER BY id DESC` for latest-first display
+- Search functionality uses LIKE operators with wildcards
+- Proper error handling with try-catch blocks
+- Type-safe TypeScript interfaces for all database operations
 
-Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite) to learn how to upgrade your Ignite project.
+## AI Usage Log
 
-## Community
-
-⭐️ Help us out by [starring on GitHub](https://github.com/infinitered/ignite), filing bug reports in [issues](https://github.com/infinitered/ignite/issues) or [ask questions](https://github.com/infinitered/ignite/discussions).
-
-💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
-
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+| **Prompt** | **AI Response Summary** | **How You Applied It** |
+|-------------|--------------------------|--------------------------|
+| **Make the New Order screen capable of submitting the form using React Hook Form** | Implemented React Hook Form integration with TypeScript validation, form controllers, and database service connection for production order creation. | Added comprehensive form handling with validation rules, Controller components, form submission logic, and database integration in `NewOrderScreen` component. |
+| **Fix issues with DateInput and Calendar components** | Diagnosed `RangeError` issues in the Calendar component caused by undefined Tamagui design tokens. Implemented fallback values and null safety checks. | Fixed Calendar component crashes by adding token fallbacks, error boundaries, and proper handling of undefined design system tokens in DateInput implementation. |
+| **Replace Alert dialogs with Toast messages** | Provided `react-native-toast-message` setup, configuration, and migration strategy from native Alert dialogs to toast notifications for better UX. | Replaced all `Alert.alert()` calls with `Toast.show()` throughout the application, implemented Toast provider setup, and created consistent success/error notification patterns. |
+| **Display latest data first on the Dashboard** | Modified SQLite database queries to implement `ORDER BY id DESC` sorting for chronological data display with the latest entries first. | Updated `getAllProductionOrders()`, `searchProductionOrders()`, and related database functions to show the newest production orders first in the dashboard interface. |
+| **Enable multiline input for raw materials field** | Extended the `TextInput` component architecture with an `isMultiline` prop while maintaining form validation and styling consistency. | Implemented multiline capability in the `TextInput` component with proper React Hook Form integration for the raw materials input field in the order creation form. |
