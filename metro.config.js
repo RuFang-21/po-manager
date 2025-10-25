@@ -17,19 +17,20 @@ config.transformer.getTransformOptions = async () => ({
   },
 })
 
-// Fix axios/apisauce issue
 config.resolver.unstable_conditionNames = ["require", "default", "browser"]
 
-// Support for .cjs
 config.resolver.sourceExts.push("cjs")
 
-// ✅ Add alias support (for @ and @assets)
 config.resolver.alias = {
   "@": path.resolve(__dirname, "app"),
   "@assets": path.resolve(__dirname, "assets"),
 }
 
-// ✅ (Optional but recommended for Tamagui + monorepo setups)
+config.resolver.alias = {
+  ...config.resolver.alias,
+  "react-native-reanimated/package.json": require.resolve("react-native-reanimated/package.json"),
+}
+
 config.resolver.unstable_enableSymlinks = true
 
 module.exports = config

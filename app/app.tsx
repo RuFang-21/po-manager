@@ -20,6 +20,8 @@ import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
 import * as Linking from "expo-linking"
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 import { TamaguiProvider } from "tamagui"
@@ -99,18 +101,22 @@ export function App() {
 
   // otherwise, we're ready to render the app
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <TamaguiProvider config={tamaguiConfig}>
-        <KeyboardProvider>
-          <AuthProvider>
-            <AppNavigator
-              linking={linking}
-              initialState={initialNavigationState}
-              onStateChange={onNavigationStateChange}
-            />
-          </AuthProvider>
-        </KeyboardProvider>
-      </TamaguiProvider>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <TamaguiProvider config={tamaguiConfig}>
+          <KeyboardProvider>
+            <AuthProvider>
+              <BottomSheetModalProvider>
+                <AppNavigator
+                  linking={linking}
+                  initialState={initialNavigationState}
+                  onStateChange={onNavigationStateChange}
+                />
+              </BottomSheetModalProvider>
+            </AuthProvider>
+          </KeyboardProvider>
+        </TamaguiProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   )
 }

@@ -57,9 +57,7 @@ const insertSampleData = async () => {
 
 export const getAllProductionOrders = async () => {
   if (!db) throw new Error("Database not initialized")
-  return await db.getAllAsync<ProductionOrder>(
-    "SELECT * FROM production_orders ORDER BY due_date ASC",
-  )
+  return await db.getAllAsync<ProductionOrder>("SELECT * FROM production_orders ORDER BY id DESC")
 }
 
 export const getProductionOrderById = async (id: number) => {
@@ -107,7 +105,7 @@ export const searchProductionOrders = async (query: string) => {
   return await db.getAllAsync<ProductionOrder>(
     `SELECT * FROM production_orders 
      WHERE finished_goods LIKE ? OR status LIKE ? 
-     ORDER BY due_date ASC`,
+     ORDER BY id DESC`,
     `%${query}%`,
     `%${query}%`,
   )
@@ -116,7 +114,7 @@ export const searchProductionOrders = async (query: string) => {
 export const filterByStatus = async (status: "pending" | "in-progress" | "completed") => {
   if (!db) throw new Error("Database not initialized")
   return await db.getAllAsync<ProductionOrder>(
-    "SELECT * FROM production_orders WHERE status = ? ORDER BY due_date ASC",
+    "SELECT * FROM production_orders WHERE status = ? ORDER BY id DESC",
     status,
   )
 }

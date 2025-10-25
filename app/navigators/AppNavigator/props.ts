@@ -20,4 +20,5 @@ export type AppStackParamList = {
   MainTabs: NavigatorScreenParams<BottomTabParamList>
   Signin: undefined
   OrderDetail: { id: string }
+  NewOrder: undefined
 }

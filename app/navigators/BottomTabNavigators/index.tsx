@@ -4,6 +4,7 @@ import { BottomTabBarProps, createBottomTabNavigator } from "@react-navigation/b
 import BottomTabBar from "./BottomTabBar"
 import { BottomTabParamList } from "./props"
 import { DashboardScreen } from "../../screens/DashboardScreen"
+import { NewOrderScreen } from "../../screens/NewOrderScreen"
 
 /**
  * ===========================
@@ -25,6 +26,7 @@ export const BottomTabNavigator = () => {
       tabBar={renderBottomTab}
     >
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="NewOrder" component={NewOrderScreen} />
     </Tab.Navigator>
   )
 }
