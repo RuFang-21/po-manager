@@ -127,7 +127,7 @@ The database layer implements a functional pattern with the following structure:
 
 ## AI Usage Log
 
-## 🧠 AI Usage Log
+##  AI Usage Log
 
 This section documents how AI assistance was applied throughout the development process, including prompt objectives, responses, and real implementation outcomes.
 
